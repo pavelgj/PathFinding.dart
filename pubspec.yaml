@@ -1,4 +1,4 @@
 name: pathfinding
 description: A Dart port of https://github.com/qiao/PathFinding.js library
-dependencies:
+dev_dependencies:
   unittest: any
