@@ -30,11 +30,11 @@ main() {
 
 Available finders:
 ------------------
+ - AStar
  - JumpPointFinder
 
 TODO:
 
- - AStar
  - BreadthFirst
  - Dijkstra
  - BiBreadthFirst
