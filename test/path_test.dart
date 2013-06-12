@@ -1,5 +1,6 @@
 import 'test_util.dart';
 import 'package:pathfinding/finders/jps.dart';
+import 'package:pathfinding/finders/astar.dart';
 import 'package:pathfinding/core/grid.dart';
 
 var scenarios = [
@@ -82,7 +83,6 @@ pathTest(name, finder, optimal) {
             return (startX, startY, endX, endY, grid, expectedLength) {
                 it('should solve maze ${++testId}', () {
                     path = finder.findPath(startX, startY, endX, endY, grid);
-                    print('$grid $path');
                     if (optimal) {
                         expect(path.length, expectedLength);
                     } else {
@@ -120,13 +120,13 @@ pathTests(tests) {
 }
 
 main() {
-  /*
   // finders guaranteed to find the shortest path
   pathTests([{
     'name': 'AStar',
-    'finder': new PF.AStarFinder(),
+    'finder': new AStarFinder(),
     'optimal': true
-  }, {
+  } /*, {
+
     'name': 'BreadthFirst',
     'finder': new PF.BreadthFirstFinder(),
     'optimal': true
@@ -142,8 +142,9 @@ main() {
     'name': 'BiDijkstra',
     'finder': new PF.BiDijkstraFinder(),
     'optimal': true
-  }]);
-  */
+  }*/
+  ]);
+
   // finders NOT guaranteed to find the shortest path
   pathTests([
   /*
