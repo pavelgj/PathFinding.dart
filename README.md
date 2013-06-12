@@ -3,14 +3,13 @@ PathFinding.dart
 
 A Dart port of https://github.com/qiao/PathFinding.js library
 
+Installing
+----------
+
+http://pub.dartlang.org/packages/pathfinding#installing
+
 Usage:
 ------
-
-```
-dependencies:
-  pathfinding:
-    git: git://github.com/pavelgj/PathFinding.dart.git
-```
 
 ```dart
 import 'package:pathfinding/finders/jps.dart';
@@ -34,6 +33,7 @@ Available finders:
  - JumpPointFinder
 
 TODO:
+
  - AStar
  - BreadthFirst
  - Dijkstra
