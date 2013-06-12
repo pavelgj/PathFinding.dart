@@ -1,4 +1,7 @@
 name: pathfinding
+author: pavelgj@gmail.com
+homepage: https://github.com/pavelgj/PathFinding.dart
+version: 0.0.1
 description: A Dart port of https://github.com/qiao/PathFinding.js library
 dev_dependencies:
   unittest: any
