@@ -30,7 +30,7 @@ class Grid {
     /**
      * A 2D array of nodes.
      */
-    this.nodes = this._buildNodes(width, height, matrix);
+    this.nodes = _buildNodes(width, height, matrix);
   }
 
   /**
@@ -51,6 +51,7 @@ class Grid {
       nodes[i] = new List(width);
       for (j = 0; j < width; ++j) {
         nodes[i][j] = new Node(j, i);
+        nodes[i][j].walkable = true;
       }
     }
 
