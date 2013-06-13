@@ -43,3 +43,19 @@ TODO:
  - BestFirstFinder
  - BiBestFirstFinder
 
+Benchmarks
+----------
+
+Dart SDK version 0.5.16.0_r23799
+ 
+Dartium
+```
+AStarFinder(RunTime): 146642.85714285713 us.
+JumpPointFinder(RunTime): 38301.88679245283 us. 
+```
+
+dart2js
+```
+AStarFinder(RunTime): 265750 us. 
+JumpPointFinder(RunTime): 105631.57894736843 us.
+```
