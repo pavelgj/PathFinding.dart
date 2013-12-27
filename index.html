@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Pathfinding.dart by pavelgj</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Pathfinding.dart</h1>
+        <h2>A Dart port of PathFinding.js library</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/pavelgj/PathFinding.dart/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/pavelgj/PathFinding.dart/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/pavelgj/PathFinding.dart" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="pathfindingdart" class="anchor" href="#pathfindingdart"><span class="octicon octicon-link"></span></a>PathFinding.dart</h1>
+
+<p>A Dart port of <a href="https://github.com/qiao/PathFinding.js">https://github.com/qiao/PathFinding.js</a> library</p>
+
+<h2>
+<a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+
+<p><a href="http://pub.dartlang.org/packages/pathfinding#installing">http://pub.dartlang.org/packages/pathfinding#installing</a></p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage:</h2>
+
+<div class="highlight highlight-dart"><pre><span class="k">import</span> <span class="s1">'package:pathfinding/finders/jps.dart'</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">'package:pathfinding/core/grid.dart'</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="n">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Grid</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">[</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span> <span class="c1">// 0 - walkable, 1 - not walkable</span>
+    <span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">]</span>
+  <span class="p">]);</span>
+  <span class="kd">var</span> <span class="n">jps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JumpPointFinder</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="n">path</span> <span class="o">=</span> <span class="n">jps</span><span class="p">.</span><span class="n">findPath</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="n">grid</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">path</span><span class="p">);</span> <span class="c1">// [[0, 0], [1, 1], [1, 2], [2, 3], [3, 3]]</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="available-finders" class="anchor" href="#available-finders"><span class="octicon octicon-link"></span></a>Available finders:</h2>
+
+<ul>
+<li>AStar</li>
+<li>JumpPointFinder</li>
+</ul><p>TODO:</p>
+
+<ul>
+<li>BreadthFirst</li>
+<li>Dijkstra</li>
+<li>BiBreadthFirst</li>
+<li>BiDijkstra</li>
+<li>BiAStarFinder</li>
+<li>BestFirstFinder</li>
+<li>BiBestFirstFinder</li>
+</ul><h2>
+<a name="benchmarks" class="anchor" href="#benchmarks"><span class="octicon octicon-link"></span></a>Benchmarks</h2>
+
+<p>Dart SDK version 0.5.16.0_r23799</p>
+
+<p>Dartium</p>
+
+<pre><code>AStarFinder(RunTime): 146642.85714285713 us.
+JumpPointFinder(RunTime): 38301.88679245283 us. 
+</code></pre>
+
+<p>dart2js</p>
+
+<pre><code>AStarFinder(RunTime): 265750 us. 
+JumpPointFinder(RunTime): 105631.57894736843 us.
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
