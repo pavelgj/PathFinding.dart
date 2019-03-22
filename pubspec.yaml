@@ -1,6 +1,6 @@
 name: pathfinding
 version: 2.0.0
-author: pavelgj@gmail.com
+author: Pavel <pavelgj@gmail.com>
 description: A Dart port of https://github.com/qiao/PathFinding.js library
 homepage: https://github.com/pavelgj/PathFinding.dart
 environment:
