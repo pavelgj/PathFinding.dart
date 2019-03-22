@@ -1,6 +1,7 @@
 
 import 'package:pathfinding/core/grid.dart';
 import 'test_util.dart';
+import 'package:test/test.dart';
 
 main() {
   describe('Grid', () {
@@ -116,12 +117,12 @@ main() {
 
           it('should return correct neighbors', () {
               expect(grid.getNeighbors(grid.nodes[1][0], true), [ grid.nodes[2][0] ]);
-              cmp(a, b) {
+              int cmp(a, b) {
                   return a.x * 100 + a.y - b.x * 100 - b.y;
               };
-              expect(grid.getNeighbors(grid.nodes[0][2], true).sort(cmp), [
+              expect(grid.getNeighbors(grid.nodes[0][2], true)..sort(cmp), [
                   grid.nodes[0][1], grid.nodes[1][2], grid.nodes[1][3]
-              ].sort(cmp));
+              ]..sort(cmp));
           });
       });
   });

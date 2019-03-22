@@ -2,6 +2,7 @@ import 'test_util.dart';
 import 'package:pathfinding/finders/jps.dart';
 import 'package:pathfinding/finders/astar.dart';
 import 'package:pathfinding/core/grid.dart';
+import 'package:test/test.dart';
 
 var scenarios = [
      {

@@ -4,8 +4,6 @@ library pathfinding.core.heap;
 
 import 'dart:math';
 
-typedef int Comparator(a, b);
-
 int defaultCmp(x, y) {
   if (x < y) {
     return -1;
@@ -22,7 +20,7 @@ int defaultCmp(x, y) {
  * Optional args lo (default 0) and hi (default a.length) bound the slice
  * of a to be searched.
  */
-_insort(List a, x, int lo, int hi, Comparator cmp) {
+_insort(List a, x, int lo, int hi, dynamic cmp) {
   var mid;
   if (lo == null) {
     lo = 0;
@@ -203,7 +201,7 @@ _nsmallest(array, n, cmp) {
   _heapify(array, cmp);
   _results = [];
   i = _j = 0;
-  for (_ref1 = min(n, array.length); 0 <= _ref1 ? _j < _ref1 : _j > _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
+  for (_ref1 = min<num>(n, array.length); 0 <= _ref1 ? _j < _ref1 : _j > _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
     _results.push(_heappop(array, cmp));
   }
   return _results;
@@ -251,7 +249,7 @@ _siftup(array, pos, cmp) {
 }
 
 class Heap {
-  Comparator cmp;
+  dynamic cmp;
   List nodes;
 
   Heap([cmp]) {

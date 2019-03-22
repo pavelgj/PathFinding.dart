@@ -32,6 +32,6 @@ class Heuristic {
    * @return {number} max(dx, dy)
    */
   static chebyshev(dx, dy) {
-      return max(dx, dy);
+      return max<num>(dx, dy);
   }
 }
