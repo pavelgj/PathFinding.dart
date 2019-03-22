@@ -37,7 +37,7 @@ biBacktrace(nodeA, nodeB) {
  * @return {number} The length of the path
  */
 pathLength(path) {
-    var i, sum = 0, a, b, dx, dy;
+    var i, sum = 0.0, a, b, dx, dy;
     for (i = 1; i < path.length; ++i) {
         a = path[i - 1];
         b = path[i];
