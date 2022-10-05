@@ -117,7 +117,7 @@ class JumpPointFinder {
           jumpNode.parent = node;
 
           if (jumpNode.opened != true) {
-              openList!.push(jumpNode);
+              openList.push(jumpNode);
               jumpNode.opened = true;
           } else {
               openList.updateItem(jumpNode);

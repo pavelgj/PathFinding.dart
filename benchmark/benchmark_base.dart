@@ -1,6 +1,5 @@
 library pathfinding.benchmark_base;
 
-import 'dart:math';
 
 import 'package:pathfinding/core/grid.dart';
 import 'package:benchmark_harness/benchmark_harness.dart';

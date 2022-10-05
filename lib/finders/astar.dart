@@ -4,7 +4,6 @@ import 'dart:math';
 
 import '../core/heap.dart';
 import '../core/grid.dart';
-import '../core/node.dart';
 import '../core/util.dart';
 import '../core/heuristic.dart';
 
