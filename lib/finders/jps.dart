@@ -9,7 +9,7 @@ import '../core/util.dart';
 import '../core/heuristic.dart';
 
 _comparator(Node nodeA, Node nodeB) {
-  return nodeA.f.toDouble() - nodeB.f.toDouble();
+  return nodeA.f!.toDouble() - nodeB.f!.toDouble();
 }
 
 
@@ -20,11 +20,11 @@ _comparator(Node nodeA, Node nodeB) {
  *     (defaults to manhattan).
  */
 class JumpPointFinder {
-  Grid grid;
-  Heap openList;
-  Node startNode;
-  Node endNode;
-  HeuristicFn heuristic;
+  Grid? grid;
+  Heap? openList;
+  Node? startNode;
+  Node? endNode;
+  HeuristicFn? heuristic;
 
   JumpPointFinder([this.heuristic]) {
     if (heuristic == null) {
@@ -78,10 +78,10 @@ class JumpPointFinder {
    */
   _identifySuccessors(node) {
     var grid = this.grid,
-        heuristic = this.heuristic,
-        openList = this.openList,
-        endX = this.endNode.x,
-        endY = this.endNode.y,
+        heuristic = this.heuristic!,
+        openList = this.openList!,
+        endX = this.endNode!.x!,
+        endY = this.endNode!.y!,
         neighbors, neighbor,
         jumpPoint, i, l,
         x = node.x, y = node.y,
@@ -96,7 +96,7 @@ class JumpPointFinder {
 
         jx = jumpPoint[0];
         jy = jumpPoint[1];
-        jumpNode = grid.getNodeAt(jx, jy);
+        jumpNode = grid!.getNodeAt(jx!, jy!);
 
         if (jumpNode.closed == true) {
           continue;
@@ -117,7 +117,7 @@ class JumpPointFinder {
           jumpNode.parent = node;
 
           if (jumpNode.opened != true) {
-              openList.push(jumpNode);
+              openList!.push(jumpNode);
               jumpNode.opened = true;
           } else {
               openList.updateItem(jumpNode);
@@ -135,7 +135,7 @@ class JumpPointFinder {
    *     found, or null if not found
    */
   _jump(x, y, px, py) {
-    var grid = this.grid,
+    var grid = this.grid!,
         dx = x - px, dy = y - py, jx, jy;
 
     if (!grid.isWalkableAt(x, y)) {
@@ -194,15 +194,15 @@ class JumpPointFinder {
    * @return {Array.<[number, number]>} The neighbors found.
    */
   _findNeighbors(node) {
-    Node parent = node.parent;
-    Grid grid = this.grid;
+    Node? parent = node.parent;
+    Grid grid = this.grid!;
     var neighbors = [], neighborNodes, neighborNode, i, l;
     int x = node.x, y = node.y, dx, dy, px, py, nx, ny;
 
     // directed pruning: can ignore most neighbors, unless forced.
     if (parent != null) {
-        px = parent.x;
-        py = parent.y;
+        px = parent.x!;
+        py = parent.y!;
         // get the normalized direction of travel
         dx = ((x - px) / max(abs(x - px), 1)).floor();
         dy = ((y - py) / max(abs(y - py), 1)).floor();

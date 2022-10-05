@@ -20,7 +20,7 @@ int defaultCmp(x, y) {
  * Optional args lo (default 0) and hi (default a.length) bound the slice
  * of a to be searched.
  */
-_insort(List a, x, int lo, int hi, dynamic cmp) {
+_insort(List a, x, int lo, int? hi, dynamic cmp) {
   var mid;
   if (lo == null) {
     lo = 0;
@@ -35,7 +35,7 @@ _insort(List a, x, int lo, int hi, dynamic cmp) {
     hi = a.length;
   }
   while (cmp(lo, hi) < 0) {
-    mid = ((lo + hi) / 2).floor();
+    mid = ((lo + hi!) / 2).floor();
     if (cmp(x, a[mid]) < 0) {
       hi = mid;
     } else {
@@ -249,8 +249,8 @@ _siftup(array, pos, cmp) {
 }
 
 class Heap {
-  dynamic cmp;
-  List nodes;
+  late dynamic cmp;
+  late List nodes;
 
   Heap([cmp]) {
     this.cmp = cmp != null ? cmp : defaultCmp;

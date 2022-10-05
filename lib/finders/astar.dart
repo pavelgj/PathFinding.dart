@@ -23,11 +23,11 @@ import '../core/heuristic.dart';
 class AStarFinder {
   bool allowDiagonal;
   bool dontCrossCorners;
-  HeuristicFn heuristic;
+  late HeuristicFn heuristic;
   int weight;
 
   AStarFinder({this.allowDiagonal: false, this.dontCrossCorners: false,
-      HeuristicFn heuristic, this.weight: 1}) {
+      HeuristicFn? heuristic, this.weight: 1}) {
     this.heuristic = heuristic == null ? Heuristic.manhattan : heuristic;
   }
 

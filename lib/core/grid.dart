@@ -11,9 +11,9 @@ import 'node.dart';
  *     representing the walkable status of the nodes(0 or false for walkable).
  *     If the matrix is not supplied, all the nodes will be walkable.  */
 class Grid {
-  int width;
-  int height;
-  var nodes;
+  late int width;
+  late int height;
+  late var nodes;
 
   Grid(width, height, [matrix]) {
     /**
@@ -44,14 +44,14 @@ class Grid {
    */
   _buildNodes(width, height, matrix) {
     var i, j,
-    nodes = new List(height),
+    nodes = new List.filled(height, new List<Node?>.filled(width, null)),
     row;
 
     for (i = 0; i < height; ++i) {
-      nodes[i] = new List(width);
+      nodes[i] = new List.filled(width, null);
       for (j = 0; j < width; ++j) {
         nodes[i][j] = new Node(j, i);
-        nodes[i][j].walkable = true;
+        nodes[i][j]!.walkable = true;
       }
     }
 
@@ -69,7 +69,7 @@ class Grid {
         if (matrix[i][j] == true || matrix[i][j] == 1) {
           // 0, false, null will be walkable
           // while others will be un-walkable
-          nodes[i][j].walkable = false;
+          nodes[i][j]!.walkable = false;
         }
       }
     }
@@ -220,11 +220,11 @@ class Grid {
     thisNodes = this.nodes,
 
     newGrid = new Grid(width, height),
-    newNodes = new List(height),
+    newNodes = new List.filled(height, new List<Node?>.filled(width, null)),
     row;
 
     for (i = 0; i < height; ++i) {
-      newNodes[i] = new List(width);
+      newNodes[i] = new List.filled(width, null);
       for (j = 0; j < width; ++j) {
         newNodes[i][j] = new Node(j, i, thisNodes[i][j].walkable);
       }
